@@ -1,0 +1,162 @@
+#main-contain {
+    position: relative;
+    width: 100%;
+    padding-top: 3rem;
+    background-color: transparent;
+}
+
+#main-contain .title h6 {
+    color: #555;
+    margin: 1rem 0;
+    font-size: 1.15rem;
+    font-weight: 400;
+    padding-bottom: .75rem;
+    border-bottom: 1px solid #e7e7e7;
+}
+
+@media (max-width: 768px) {
+    #main-contain {
+        padding-top: 0;
+    }
+    #main-contain .title h6 {
+        margin: .75rem 0 .5rem;
+    }
+}
+
+.mg-bottom-1 {
+    margin-bottom: 1px;
+}
+
+
+/*===== LEFT SIDE =====*/
+
+.left-side .side-nav a {
+    color: #555;
+    border-bottom: 1px solid transparent;
+}
+
+.left-side .side-nav .nav-link {
+    padding: .4rem 0;
+}
+
+@media (max-width: 768px) {
+    .left-side .side-nav .nav-link {
+        padding: .25rem 0;
+    }
+}
+
+.left-side .side-nav .active {
+    color: #ed1d27;
+}
+
+.left-side .side-nav a:hover {
+    border-bottom: 1px solid #ed1d27;
+    transition: 0.6s;
+}
+
+
+/*===== RIGHT SIDE =====*/
+
+.right-side .sort a {
+    color: #ed1d27;
+}
+
+.right-side .sort a:hover {
+    color: #0084ff;
+}
+
+.product .status {
+    position: absolute;
+    z-index: 1000;
+}
+
+.product .status img {
+    width: 75%;
+}
+
+.product .img {
+    position: relative;
+}
+
+.product .img:hover {
+    cursor: pointer;
+}
+
+.product .img img {
+    display: block;
+    width: 100%;
+    height: auto;
+}
+
+.product .img .overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, 0.85);
+    overflow: hidden;
+    width: 100%;
+    height: 0;
+    transition: .5s ease;
+}
+
+.img:hover .overlay {
+    height: 25%;
+}
+
+.product .img .overlay p>a {
+    color: #fff;
+    position: absolute;
+    font-size: .9rem;
+    top: 50%;
+    left: 50%;
+    width: 100%;
+    transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    text-align: center;
+}
+
+.product .img .overlay p>a:hover {
+    color: #ff666e;
+    text-decoration: none;
+}
+
+.product .description h6 {
+    font-size: .9rem;
+    margin-top: .5rem;
+    margin-bottom: .5rem;
+}
+
+.product .description h6>a {
+    color: #555;
+}
+
+.product .description h6>a:hover {
+    color: #ed1d27;
+    text-decoration: none;
+}
+
+.product .description p {
+    font-size: .9rem;
+    margin-bottom: .2rem;
+}
+
+
+/*
+ *  STYLE 3
+ */
+
+#style-3::-webkit-scrollbar-track {
+    background-color: #F5F5F5;
+    border-radius: 0;
+}
+
+#style-3::-webkit-scrollbar {
+    width: 6px;
+    background-color: #F5F5F5;
+}
+
+#style-3::-webkit-scrollbar-thumb {
+    background-color: #929ba3;
+    border-radius: 0;
+}
