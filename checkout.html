@@ -44,17 +44,11 @@
                 </ul>
                 <div class="ml-auto">
                     <ul class="navbar-nav">
-                        <!-- Dropdown -->
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="#" id="navbardrop" data-toggle="dropdown">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#" id="cart">
                                 <i class="fas fa-cart-arrow-down fa-fw mg-right-5" style="font-size: 16px;"></i> Giỏ hàng
                                 <span class="badge badge-danger mg-left-5">0</span>
                             </a>
-                            <div class="dropdown-menu">
-                                <a class="dropdown-item" href="#">Link 1</a>
-                                <a class="dropdown-item" href="#">Link 2</a>
-                                <a class="dropdown-item" href="#">Link 3</a>
-                            </div>
                         </li>
                         <form class="form-inline mg-left-20" action="" method="">
                             <div class="input-group">
@@ -71,20 +65,85 @@
         </div>
     </nav>
 
+    <div class="container">
+        <div class="shopping-cart">
+            <ul id="style-4" class="shopping-cart-items">
+                <li class="clearfix">
+                    <img src="images/soldier-green-tan.jpg" alt="item1" />
+                    <span class="item-name">Sony DSC-RX100M III</span>
+                    <span class="item-price">15.000.000<sup>đ</sup></span>
+                    <span class="item-quantity">Số lượng: 01</span>
+                </li>
+                <li class="clearfix">
+                    <img src="images/soldier-green-tan.jpg" alt="item1" />
+                    <span class="item-name">KS Automatic Mechanic...</span>
+                    <span class="item-price">5.500.000<sup>đ</sup></span>
+                    <span class="item-quantity">Số lượng: 01</span>
+                </li>
+                <li class="clearfix">
+                    <img src="images/soldier-green-tan.jpg" alt="item1" />
+                    <span class="item-name">KS Automatic Mechanic...</span>
+                    <span class="item-price">5.500.000<sup>đ</sup></span>
+                    <span class="item-quantity">Số lượng: 01</span>
+                </li>
+                <li class="clearfix">
+                    <img src="images/soldier-green-tan.jpg" alt="item1" />
+                    <span class="item-name">KS Automatic Mechanic...</span>
+                    <span class="item-price">5.500.000<sup>đ</sup></span>
+                    <span class="item-quantity">Số lượng: 01</span>
+                </li>
+                <li class="clearfix">
+                    <img src="images/soldier-green-tan.jpg" alt="item1" />
+                    <span class="item-name">KS Automatic Mechanic...</span>
+                    <span class="item-price">5.500.000<sup>đ</sup></span>
+                    <span class="item-quantity">Số lượng: 01</span>
+                </li>
+                <li class="clearfix">
+                    <img src="images/soldier-green-tan.jpg" alt="item1" />
+                    <span class="item-name">KS Automatic Mechanic...</span>
+                    <span class="item-price">5.500.000<sup>đ</sup></span>
+                    <span class="item-quantity">Số lượng: 01</span>
+                </li>
+            </ul>
+            <div class="shopping-cart-footer">
+                <div class="text-right">
+                    <p>Product: <strong>3</strong></p>
+                    <p>Total: <strong>21.000.000<sup>đ</sup></strong></p>
+                </div>
+                <div class="text-right">
+                    <a href="#" class="btn btn-danger float-right">Thanh toán</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <!-- Cover -->
-    <div id="main-contain" class="container">
+    <!-- <div id="main-contain" class="container">
         <div class="row">
             <div class="col-md-12">
 
             </div>
         </div>
 
-    </div>
+    </div> -->
 
     <script src="assets/js/jquery/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
     <script src="assets/js/bootstrap/bootstrap.min.js"></script>
     <script src="assets/js/app.js"></script>
+    <script>
+        (function() {
+            $("#cart").on("click", function() {
+                $(".shopping-cart").fadeToggle(300);
+            });
+
+        })();
+
+        // $("#cart").on('blur', function() {
+        //     $(".shopping-cart").fadeOut(300);
+        // });
+    </script>
 
 </body>
 

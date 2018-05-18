@@ -72,6 +72,106 @@ body {
     background-color: #ed1d27;
 }
 
+
+/* Dropdown Menu */
+
+.shopping-cart {
+    margin-top: -1px;
+    float: right;
+    background: #fff;
+    width: 320px;
+    position: relative;
+    padding-bottom: 1.15rem;
+    border: 1px solid #ccc;
+    margin-right: 10rem;
+    display: none;
+}
+
+.shopping-cart ul {
+    margin-bottom: 0;
+}
+
+.shopping-cart .shopping-cart-items {
+    padding: 0;
+    overflow-y: scroll;
+    max-height: 22.2rem;
+    padding: 1rem 1rem 0 1rem;
+}
+
+.shopping-cart .shopping-cart-items li {
+    margin-bottom: .75rem;
+    list-style: none;
+}
+
+.shopping-cart .shopping-cart-items img {
+    float: left;
+    margin-right: 1rem;
+    width: 4.5rem;
+}
+
+.shopping-cart .shopping-cart-items .item-name {
+    display: inline-block;
+    padding-top: .7rem;
+    padding-bottom: .15rem;
+    font-size: .9rem;
+}
+
+.shopping-cart .shopping-cart-items .item-price {
+    color: #ed1d27;
+    margin-right: 1rem;
+    font-size: .8rem;
+    min-width: 6rem;
+    display: inline-block;
+}
+
+.shopping-cart .shopping-cart-items .item-quantity {
+    color: #969696;
+    font-size: .8rem;
+}
+
+.shopping-cart .shopping-cart-footer {
+    border-top: 1px solid #e7e7e7;
+    padding-top: .8rem;
+    padding: .8rem 1rem 1rem;
+}
+
+.shopping-cart .shopping-cart-footer .btn {
+    width: 100%;
+    margin-top: .4rem;
+    display: inline-block;
+}
+
+.shopping-cart .shopping-cart-footer>div>p {
+    margin-bottom: .5rem;
+}
+
+.shopping-cart .shopping-cart-footer>div>p>strong {
+    color: #ed1d27;
+}
+
+.shopping-cart:after {
+    bottom: 100%;
+    left: 50%;
+    border: solid transparent;
+    content: " ";
+    height: 0;
+    width: 0;
+    position: absolute;
+    pointer-events: none;
+    border-bottom-color: #ccc;
+    border-width: 8px;
+    margin-left: -8px;
+}
+
+.clearfix:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+
+/* Search Form */
+
 .navbar .form-control {
     padding: .3rem .5rem;
     font-size: .9rem;
@@ -144,5 +244,23 @@ body {
 
 #style-3::-webkit-scrollbar-thumb {
     background-color: #929ba3;
+    border-radius: 0;
+}
+
+
+/**/
+
+#style-4::-webkit-scrollbar-track {
+    background-color: #F5F5F5;
+    border-radius: 0;
+}
+
+#style-4::-webkit-scrollbar {
+    width: 4px;
+    background-color: #F5F5F5;
+}
+
+#style-4::-webkit-scrollbar-thumb {
+    background-color: #d8d8d8;
     border-radius: 0;
 }
