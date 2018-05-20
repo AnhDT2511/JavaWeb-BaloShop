@@ -81,6 +81,7 @@ body {
     border-radius: 0;
     left: -50%;
     min-width: 320px;
+    border: 1px solid #cccccc;
 }
 
 
