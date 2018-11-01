@@ -128,7 +128,7 @@
                     </div>
                     <div class="col-md-4">
                         <button type="button" class="btn btn-success w-100" data-toggle="collapse" data-target="#inputForm" aria-expanded="false" aria-controls="inputForm">Giao hàng đến địa chỉ khác</button>
-                        <button type="button" class="btn btn-danger mt-4 w-100">Xác nhận giao hàng đến địa chỉ này</button>
+                        <a href="checkout" class="btn btn-danger mt-4 w-100">Xác nhận giao hàng đến địa chỉ này</a>
                     </div>
                 </div>
                     
@@ -155,7 +155,7 @@
                                     <textarea class="form-control" rows="2" name="note"></textarea>
                                     <small id="note" class="form-text text-muted">Lưu ý khi vận chuyển hàng hóa.</small>
                                 </div>
-                                <input type="submit" class="btn btn-danger" name="btnUpload" value="Xác nhận giao hàng đến địa chỉ này">
+                                <input type="submit" class="btn btn-danger" name="btnUpdate" value="Xác nhận giao hàng đến địa chỉ này">
                             </form>
                         </div>
                     </div>

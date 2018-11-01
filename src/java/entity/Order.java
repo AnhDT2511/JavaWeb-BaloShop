@@ -15,20 +15,22 @@ public class Order {
     private int accountId;
     private String date;
     private double totalPrice;
+    private String note;
     private String address;
 
-    public Order(int accountId, String date, double totalPrice, String address) {
+    public Order(int accountId, double totalPrice, String note, String address) {
         this.accountId = accountId;
-        this.date = date;
         this.totalPrice = totalPrice;
+        this.note = note;
         this.address = address;
     }
 
-    public Order(int id, int accountId, String date, double totalPrice, String address) {
+    public Order(int id, int accountId, String date, double totalPrice, String note, String address) {
         this.id = id;
         this.accountId = accountId;
         this.date = date;
         this.totalPrice = totalPrice;
+        this.note = note;
         this.address = address;
     }
 
@@ -62,6 +64,14 @@ public class Order {
 
     public void setTotalPrice(double totalPrice) {
         this.totalPrice = totalPrice;
+    }
+
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
     }
 
     public String getAddress() {
