@@ -6,12 +6,14 @@
 package model;
 
 import dao.MSSQLConnection;
+import entity.Cart;
 import entity.Product;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
+import java.util.List;
 
 /**
  *
@@ -177,7 +179,27 @@ public class ProductModel {
         return isCheck > 0;
     }
 
-    public boolean updateProduct(Product obj, int id) {
-        throw new UnsupportedOperationException("Not supported yet.");
+    public boolean updateQuantityProduct(List<Cart> list) {
+        String query = "UPDATE Products SET Quantity = ? WHERE Id = ?";
+        try {
+            connection = MSSQLConnection.getConnection();
+            ps = connection.prepareStatement(query);
+            connection.setAutoCommit(false);
+            for(Cart c : list){
+                ps.setInt(1, new ProductModel().getOneProduct(c.getProductId()).getQuantity() - c.getQuantity());
+                ps.setInt(2, c.getProductId());
+                ps.addBatch();
+            }
+            ps.executeBatch();
+            connection.commit();
+            return true;
+        } catch (SQLException e) {
+            System.out.println(e);
+        } finally {
+            MSSQLConnection.closeResultSet(rs);
+            MSSQLConnection.closePreparedStatement(ps);
+            MSSQLConnection.closeConnection(connection);
+        }
+        return false;
     }
 }

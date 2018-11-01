@@ -24,14 +24,13 @@ public class OrderModel {
     private ResultSet rs = null;
 
     public int addOrder(Order order) {
-        String query = "INSERT INTO [Order](Account_Id, Total_Price, Note, Address) VALUES(?, ?, ?, ?)";
+        String query = "INSERT INTO [Order](Account_Id, Total_Price, Note) VALUES(?, ?, ?)";
         try {
             connection = MSSQLConnection.getConnection();
             ps = connection.prepareStatement(query, Statement.RETURN_GENERATED_KEYS);
             ps.setInt(1, order.getAccountId());
             ps.setDouble(2, order.getTotalPrice());
             ps.setString(3, order.getNote());
-            ps.setString(4, order.getAddress());
             int isCheck = ps.executeUpdate();
             if (isCheck > 0) {
                 rs = ps.getGeneratedKeys();

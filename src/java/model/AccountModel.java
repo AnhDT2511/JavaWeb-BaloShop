@@ -31,11 +31,12 @@ public class AccountModel {
      * @return object Account
      */
     public Account login(String email, String password) {
-        String query = "SELECT * FROM Account WHERE Email = ?";
+        String query = "SELECT * FROM Account WHERE Email = ? and Password = ?";
         try {
             connection = MSSQLConnection.getConnection();
             ps = connection.prepareStatement(query);
             ps.setString(1, email);
+            ps.setString(2, password);
             rs = ps.executeQuery();
             if (rs.next()) {
                 Account account = new Account(

@@ -16,22 +16,19 @@ public class Order {
     private String date;
     private double totalPrice;
     private String note;
-    private String address;
 
-    public Order(int accountId, double totalPrice, String note, String address) {
+    public Order(int accountId, double totalPrice, String note) {
         this.accountId = accountId;
         this.totalPrice = totalPrice;
         this.note = note;
-        this.address = address;
     }
 
-    public Order(int id, int accountId, String date, double totalPrice, String note, String address) {
+    public Order(int id, int accountId, String date, double totalPrice, String note) {
         this.id = id;
         this.accountId = accountId;
         this.date = date;
         this.totalPrice = totalPrice;
         this.note = note;
-        this.address = address;
     }
 
     public int getId() {
@@ -72,13 +69,5 @@ public class Order {
 
     public void setNote(String note) {
         this.note = note;
-    }
-
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
     }
 }

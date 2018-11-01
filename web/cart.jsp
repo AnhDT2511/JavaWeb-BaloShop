@@ -27,6 +27,11 @@
             table {
                 border-bottom: 1px solid #dee2e6;
             }
+            
+            table tr td a:hover {
+                color: #f96332;
+                text-decoration: none;
+            }           
         </style>
     </head>
     <body>
@@ -64,12 +69,14 @@
                             <c:forEach items="${listOrder}" var="i" varStatus="no">
                                 <tr>
                                     <th scope="row">${no.index+1}</th>
-                                    <td>${i.name}</td>
+                                    <td>
+                                        <a href="product?id=${i.productId}" target="_blank">${i.name}</a>
+                                    </td>
                                     <td>
                                         <fmt:formatNumber type="number" maxFractionDigits="3" value="${i.unitPrice}"/><sup>đ</sup>
                                     </td>
                                     <td>
-                                        <a class="btn-number" href="calculatecart?more=1&id=${i.productId}">-</a>
+                                        <a class="btn-number " href="calculatecart?more=1&id=${i.productId}">-</a>
                                         ${i.quantity}
                                         <a class="btn-number" href="calculatecart?more=2&id=${i.productId}">+</a>
                                     </td>

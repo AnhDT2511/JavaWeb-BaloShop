@@ -5,13 +5,25 @@
  */
 package client.controller;
 
+import entity.Account;
+import entity.AccountDetail;
+import entity.Cart;
+import entity.Order;
+import entity.OtherAddress;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.List;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
+import model.AccountDetailModel;
+import model.OrderDetailModel;
+import model.OrderModel;
+import model.OtherAddressModel;
+import model.ProductModel;
 
 /**
  *
@@ -36,7 +48,44 @@ public class CheckOut extends HttpServlet {
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
-            
+            String btnUpdate = request.getParameter("btnUpdate");
+            String note = request.getParameter("note");
+
+            HttpSession session = request.getSession();
+            Account account = (Account) session.getAttribute("currentLoginAccount");
+            List<Cart> listOrder = (List<Cart>) session.getAttribute("listOrder");
+            double totalPrice = (double) session.getAttribute("totalPrice");
+
+            Order order = new Order(account.getId(), totalPrice, note);
+            int orderId = new OrderModel().addOrder(order);
+
+            if (orderId > 0) {
+                boolean isCheckAddOrderDetail = new OrderDetailModel().addOrderDetail(listOrder, orderId);
+                if (isCheckAddOrderDetail) {
+                    boolean isCheckUpdateProductQuantity = new ProductModel().updateQuantityProduct(listOrder);
+
+                    if (isCheckUpdateProductQuantity) {
+                        AccountDetail accountDetail = new AccountDetailModel().getOneAccountDetail(account.getAccountDetailId());
+                        OtherAddress otherAddress;
+                        if (btnUpdate == null) {
+                            otherAddress = new OtherAddress(accountDetail.getName(), accountDetail.getMobile(), accountDetail.getAddress(), orderId);
+                        } else {
+                            String name = request.getParameter("name");
+                            String mobile = request.getParameter("mobile");
+                            String address = request.getParameter("address");
+                            otherAddress = new OtherAddress(name, mobile, address, orderId);
+                        }
+                        boolean isCheckAddAddress = new OtherAddressModel().addOtherAddress(otherAddress);
+                        if (isCheckAddAddress) {
+                            session.removeAttribute("listOrder");
+                            session.removeAttribute("totalPrice");
+                            response.sendRedirect("thanks.jsp");
+                        }
+                    }
+                }
+            } else {
+                response.sendRedirect("checkout.jsp");
+            }
         }
     }
 

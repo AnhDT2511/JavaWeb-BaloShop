@@ -95,7 +95,7 @@
                     </div>
                     <div class="col-md-4 text-right">
                         <c:if test="${totalPrice ne null}">
-                            <h4 class="pb-2">Tổng tiền:</h4>
+                            <h4 class="pb-2">Tổng tiền</h4>
                             <h3 class="mt-3"><fmt:formatNumber type="number" maxFractionDigits="3" value="${totalPrice}"/><sup>đ</sup></h3>
                         </c:if>
                     </div>                   
@@ -137,7 +137,7 @@
                         <h5>Nhập thông tin địa chỉ giao hàng mới</h5>
                         <p>Hàng hóa sẽ được giao đến địa chỉ này sau khi xác nhận.</p>
                         <div class="m-info">
-                            <form action="" method="post">
+                            <form action="checkout" method="post">
                                 <div class="form-group col-md-6 p-0">
                                     <label>Họ và tên:</label>
                                     <input type="text" class="form-control" name="name">

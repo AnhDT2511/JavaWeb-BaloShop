@@ -6,6 +6,7 @@
 package client.controller;
 
 import entity.Cart;
+import entity.Product;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -16,6 +17,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
+import model.ProductModel;
 
 /**
  *
@@ -74,7 +76,12 @@ public class CalculateCart extends HttpServlet {
                                 }
                             }
                         } else {
-                            listOrder.get(i).setQuantity(listOrder.get(i).getQuantity() + 1);
+                            Product product = new ProductModel().getOneProduct(id);
+                            if (listOrder.get(i).getQuantity() < product.getQuantity()) {
+                                listOrder.get(i).setQuantity(listOrder.get(i).getQuantity() + 1);
+                            } else {
+                                listOrder.get(i).setQuantity(listOrder.get(i).getQuantity());
+                            }
                         }
                     }
                 }

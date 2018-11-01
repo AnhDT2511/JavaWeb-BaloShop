@@ -6,42 +6,34 @@
 package model;
 
 import dao.MSSQLConnection;
-import entity.Cart;
+import entity.OrderDetail;
+import entity.OtherAddress;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.List;
 
 /**
  *
  * @author Shado
  */
-public class OrderDetailModel {
+public class OtherAddressModel {
 
     private Connection connection = null;
     private PreparedStatement ps = null;
     private ResultSet rs = null;
 
-    public boolean addOrderDetail(List<Cart> list, int orderId) {
-        String query = "INSERT INTO Order_Detail(Order_Id, Product_Id, Product_Name, "
-                + "Product_Quantity, Product_Price) VALUES(?, ?, ?, ?, ?)";
+    public boolean addOtherAddress(OtherAddress otherAddress) {
+        int isCheck = 0;
+        String query = "INSERT INTO Other_Address(Name, Phone_Number, Address, Order_Id) VALUES(?, ?, ?, ?)";
         try {
             connection = MSSQLConnection.getConnection();
             ps = connection.prepareStatement(query);
-            connection.setAutoCommit(false);
-            for(Cart c : list){
-                ps.setInt(1, orderId);
-                ps.setInt(2, c.getProductId());
-                ps.setString(3, c.getName());
-                ps.setInt(4, c.getQuantity());
-                ps.setDouble(5, c.getUnitPrice());
-                ps.addBatch();
-            }
-            ps.executeBatch();
-            connection.commit();
-            System.out.println("Record is inserted into Order_Detail table!");
-            return true;
+            ps.setString(1, otherAddress.getName());
+            ps.setString(2, otherAddress.getPhoneNumber());
+            ps.setString(3, otherAddress.getAddress());
+            ps.setInt(4, otherAddress.getOrderId());
+            isCheck = ps.executeUpdate();
         } catch (SQLException e) {
             System.out.println(e);
         } finally {
@@ -49,6 +41,6 @@ public class OrderDetailModel {
             MSSQLConnection.closePreparedStatement(ps);
             MSSQLConnection.closeConnection(connection);
         }
-        return false;
+        return isCheck > 0;
     }
 }
