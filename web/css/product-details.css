@@ -96,7 +96,7 @@
 
 @media (max-width: 768px) {
     .product-details{
-        padding: 0 0 4.5rem;
+        padding: 0;
     }
     .product-details .product-name {
         margin-top: .75rem;

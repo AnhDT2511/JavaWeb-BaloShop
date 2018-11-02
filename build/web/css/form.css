@@ -240,20 +240,20 @@ input[type=checkbox] {
 
 @media (max-width: 500px) {
     .signin {
-        background-color: #f96332 !important;
+        background-color: #fff !important;
     }
     .signin .login-panel {
         width: calc(100%) !important;
     }
     .signup {
-        background-color: #f96332 !important;
+        background-color: #fff !important;
     }
     .signup .login-panel {
         overflow-y: scroll;
         width: calc(100%) !important;
     }
     .reminder-password {
-        background-color: #f96332 !important;
+        background-color: #fff !important;
     }
     .reminder-password .login-panel {
         width: calc(100%) !important;

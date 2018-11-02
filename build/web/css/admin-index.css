@@ -245,9 +245,17 @@ label input:focus {
 
 /*======== Custom =========*/
 .card {
-    border: 1px solid #ced4da;
+    border: 1px dashed #ccc;
 }
 
 .card-body {
     padding: 15px 0;
+}
+
+.active {
+    color: #28a745;
+}
+
+.deactive {
+    color: #dc3545;
 }

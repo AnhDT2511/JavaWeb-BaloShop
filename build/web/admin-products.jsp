@@ -1,5 +1,5 @@
 <%-- 
-    Document   : admin-dashboard
+    Document   : admin-products
     Created on : Oct 21, 2018, 11:36:18 PM
     Author     : Shado
 --%>
@@ -24,13 +24,11 @@
         <div class="col-md-6">
             <span style="color: #ed1d27">${message}</span>
         </div>
-            
+    </div>
+    <div class="row">
         <div class="col-md-12">
             <div class="collapse mb-2" id="addProduct">
                 <div class="card">
-                    <div class="card-header">
-                        Nhập thông tin sản phẩm mới
-                    </div>
                     <div class="card-body">
                         <form action="addproduct" method="post" enctype="multipart/form-data" acceptcharset="UTF-8">
                             <div class="form-group col-md-6">
@@ -84,6 +82,7 @@
                 <thead>
                     <tr>
                         <th>STT</th>
+                        <th>Mã SP</th>
                         <th>Tên sản phẩm</th>
                         <th>Số lượng</th>
                         <th>Giá</th>
@@ -95,6 +94,7 @@
                 <c:forEach items="${products}" var="i" varStatus="no">
                     <tr>
                         <td>${no.index+1}</td>
+                        <td>${i.id}</td>
                         <td>${i.name}</td>
                         <td>${i.quantity}</td>
                         <td>${i.price}</td>

@@ -11,6 +11,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>Check out</title>
         <!-- Custom Fonts -->
         <script defer src="font-awesome/js/fontawesome-all.js"></script>
@@ -23,11 +24,11 @@
                 border: 1px dashed #f96332;
                 padding: 10px 15px 15px;
             }
-            .table {
+            .m-info .table {
                 margin-bottom: 0;
             }
             td {
-                padding: 3px 10px 3px 0;
+                padding: 4px 10px 4px 0;
             }
             h4 {
                 border-bottom: 1px dashed #f96332;
@@ -93,7 +94,7 @@
                             </table>
                         </div>
                     </div>
-                    <div class="col-md-4 text-right">
+                    <div class="col-md-4 text-right mt-4">
                         <c:if test="${totalPrice ne null}">
                             <h4 class="pb-2">Tổng tiền</h4>
                             <h3 class="mt-3"><fmt:formatNumber type="number" maxFractionDigits="3" value="${totalPrice}"/><sup>đ</sup></h3>

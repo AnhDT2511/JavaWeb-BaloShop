@@ -1,5 +1,5 @@
 <%-- 
-    Document   : admin-dashboard
+    Document   : admin-index
     Created on : Oct 20, 2018, 10:10:00 PM
     Author     : Shado
 --%>
@@ -10,6 +10,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <title>Admin Site</title>
         <!-- Bootstrap CSS -->
         <link rel="stylesheet" href="css/bootstrap/bootstrap.min.css">
@@ -18,10 +19,12 @@
         <link rel="stylesheet" href="css/admin-index.css">
     </head>
     <body>
-        
-        
         <%@include file="common/admin-nav.jsp"%>
-
+        
+        <c:if test="${currentLoginAccount eq null}">
+            <c:redirect url="login.jsp"/>
+        </c:if>
+        
         <!-- Cover -->
         <div id="main-contain" class="container">
             <div class="row">
@@ -92,17 +95,8 @@
                 var dtable = $('#accounts').dataTable({
                     "oLanguage": vietnamese
                 });
-            });
-
-            $(document).ready(function () {
                 $('#accounts').DataTable();
-            });
-            
-            $(document).ready(function () {
                 $('#products').DataTable();
-            });
-            
-            $(document).ready(function () {
                 $('#orders').DataTable();
             });
         </script>

@@ -1,5 +1,5 @@
 <%-- 
-    Document   : nav
+    Document   : admin-nav
     Created on : Aug 24, 2018, 7:57:01 PM
     Author     : Shado
 --%>
@@ -9,7 +9,7 @@
 <!-- Nav -->
 <nav class="navbar navbar-expand-md bg-light navbar-light">
     <div class="container pr-0">
-        <a class="mr-4 brand" href="admin-dashboard.jsp">Shop Balo</a>
+        <a class="mr-4 brand" href="admin-index.jsp">Shop Balo</a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
             <span class="navbar-toggler-icon"></span>
         </button>

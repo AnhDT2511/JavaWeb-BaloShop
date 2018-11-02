@@ -1,5 +1,5 @@
 <%-- 
-    Document   : login.jsp
+    Document   : reminder password
     Created on : Aug 13, 2018, 1:32:22 AM
     Author     : Shado
 --%>

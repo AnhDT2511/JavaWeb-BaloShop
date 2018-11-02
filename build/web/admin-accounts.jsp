@@ -1,5 +1,5 @@
 <%-- 
-    Document   : admin-dashboard
+    Document   : admin-accounts
     Created on : Oct 21, 2018, 11:36:18 PM
     Author     : Shado
 --%>
@@ -25,7 +25,6 @@
                         <th>Loại</th>
                         <th>Trạng thái</th>
                         <th>Chi tiết</th>
-                        <th>Chức năng</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -34,14 +33,16 @@
                         <td>${no.index+1}</td>
                         <td>${i.email}</td>
                         <td>${i.roleId == 1 ? "Admin" : "Khách hàng"}</td>
-                        <td>${i.status == 1 ? "Đang hoạt động" : "Ngừng hoạt động"}</td>
                         <td>
-                            <a href="#" data-toggle="modal" data-target="#myModal" class="g-color">Chi tiết</a>
-<!--                            <a href="#no${no.index+1}" data-toggle="collapse" class="g-color">Chi tiết</a> -->
+                            <c:if test="${i.status == 1}">
+                                <span class="active">Đang hoạt động</span>
+                            </c:if>
+                            <c:if test="${i.status != 1}">
+                                <span class="deactive">Ngừng hoạt động</span>
+                            </c:if>
                         </td>
                         <td>
-                            <a href="" class="mr-3">Sửa</a>
-                            <a href="">Khóa</a>
+                            <a href="#" data-toggle="modal" data-target="#myModal" class="g-color">Chi tiết</a>
                         </td>
                     </tr>
                 </c:forEach>
@@ -52,28 +53,25 @@
 </div>
 
 <!-- The Modal -->
-<div class="modal fade" id="myModal">
-    <div class="modal-dialog modal-lg">
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
         <div class="modal-content">
-
-            <!-- Modal Header -->
             <div class="modal-header">
                 <h5 class="modal-title">Chi tiết tài khoản</h5>
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
-
-            <!-- Modal body -->
-            <div class="modal-body result-detail">
-                xxxxxxxxxxxxxxxxxxxxx
+            <div class="modal-body">
+                ...
             </div>
-
-            <!-- Modal footer -->
             <div class="modal-footer">
-                <button type="submit" class="btn btn-success" data-dismiss="modal">Cập nhật thông tin</button>
-                <button type="button" class="btn btn-danger" data-dismiss="modal">Đóng</button>
+                <button type="submit" class="btn btn-success btn-sm" data-dismiss="modal">Cập nhật thông tin</button>
+                <button type="button" class="btn btn-danger btn-sm" data-dismiss="modal">Khóa tài khoản</button>
+                <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Đóng</button>
             </div>
-
         </div>
     </div>
 </div>
+
 
