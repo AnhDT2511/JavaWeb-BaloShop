@@ -29,7 +29,7 @@
                     <div class="left-side">
                         <div class="row title">
                             <div class="col-md-12">
-                                <h6>Danh mục sản phẩm</h6>
+                                <h6>Danh mục quản lý</h6>
                             </div>
                         </div>
                         <%@include file="common/user-sidenav.jsp"%>                     
@@ -55,7 +55,7 @@
                                         <tr>
                                             <td>Mật khẩu:</td>
                                             <td>
-                                                <a href="">Đổi mật khẩu</a>
+                                                <a href="javascript:void(0)" data-toggle="collapse" data-target="#changePassword" aria-expanded="false" aria-controls="collapseExample">Đổi mật khẩu</a>
                                             </td>
                                         </tr>
                                         <tr>
@@ -78,6 +78,28 @@
                                             <td>${currentLoginAccount.fmDate}</td>
                                         </tr>
                                     </table>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row mt-3">
+                            <div class="col-md-12">
+                                <div class="collapse mb-2" id="changePassword">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <form action="" method="post">
+                                                <div class="form-group col-md-6">
+                                                    <input type="text" class="form-control" name="password" placeholder="Nhập mật khẩu hiện tại">
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <input type="text" class="form-control" name="newPassword" placeholder="Nhập mật khẩu mới">
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <input type="text" class="form-control" name="newPasswordCf" placeholder="Nhập lại mật khẩu mới">
+                                                </div>
+                                                <input type="submit" class="btn btn-success btn-sm ml-3" name="btnUpload" value="Đổi mật khẩu">
+                                            </form>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -110,7 +132,7 @@
                                             <td>${accountDetailInfo.address}</td>
                                         </tr>
                                     </table>
-                                    <button type="button" class="btn btn-success btn-sm mt-3" data-toggle="collapse" data-target="#updateInfo" aria-expanded="false" aria-controls="collapseExample">
+                                    <button type="button" class="btn btn-success btn-sm mt-2" data-toggle="collapse" data-target="#updateInfo" aria-expanded="false" aria-controls="collapseExample">
                                         Thay đổi thông tin
                                     </button>
                                 </div>
@@ -122,7 +144,7 @@
                                 <div class="collapse mb-2" id="updateInfo">
                                     <div class="card">
                                         <div class="card-body">
-                                            <form action="addproduct" method="post">
+                                            <form action="" method="post">
                                                 <div class="form-group col-md-6">
                                                     <input type="text" class="form-control" name="name" placeholder="Họ và tên">
                                                 </div>
