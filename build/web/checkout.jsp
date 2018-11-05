@@ -23,6 +23,7 @@
             .m-info {
                 border: 1px dashed #f96332;
                 padding: 10px 15px 15px;
+                border-radius: .25rem;
             }
             .m-info .table {
                 margin-bottom: 0;

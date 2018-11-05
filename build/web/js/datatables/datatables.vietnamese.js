@@ -6,7 +6,7 @@ var vietnamese = {
     "sInfoEmpty": "Đang xem 0 đến 0 trong tổng số 0 mục",
     "sInfoFiltered": "(được lọc từ _MAX_ mục)",
     "sInfoPostFix": "",
-    "sSearch": "Tìm:",
+    "sSearch": "Tìm kiếm:",
     "sUrl": "",
     "oPaginate": {
         "sFirst": "Đầu",

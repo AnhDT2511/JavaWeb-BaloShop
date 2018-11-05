@@ -56,7 +56,7 @@ public class CheckOut extends HttpServlet {
             List<Cart> listOrder = (List<Cart>) session.getAttribute("listOrder");
             double totalPrice = (double) session.getAttribute("totalPrice");
 
-            Order order = new Order(account.getId(), totalPrice, note);
+            Order order = new Order(account.getId(), totalPrice, note, 1);
             int orderId = new OrderModel().addOrder(order);
 
             if (orderId > 0) {

@@ -265,3 +265,11 @@ td {
 .card-body {
     padding: 1rem 0;
 }
+
+.g-color {
+    color: #ed1d27;
+}
+
+.g-color:hover {
+    color: #ed1d27;
+}

@@ -36,7 +36,7 @@
                                 <label class="custom-control custom-checkbox">
                                     <input type="checkbox" class="custom-control-input" id="login-remember-me" name="login-remember-me">
                                     <span class="custom-control-indicator"></span>
-                                    <span class="custom-control-description">Remember Me</span>
+                                    <span class="custom-control-description">Ghi nhớ mật khẩu</span>
                                 </label>
                             </div>
                         </div>

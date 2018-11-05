@@ -96,7 +96,7 @@
                         </div>
 
                         <div class="row mt-2">
-                            <c:if test="${listProduct eq null}">
+                            <c:if test="${listProduct eq null || listProduct.size() == 0}">
                                 <div class="col-12">
                                     <h5 class="text-center">Không tìm thấy sản phẩm nào.</h5>
                                 </div>

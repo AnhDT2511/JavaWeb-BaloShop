@@ -50,19 +50,25 @@
                                 <table id="orders" table class="table table-bordered" cellspacing="0" width="100%">
                                     <thead>
                                         <tr>
-                                            <th>STT</th>
-                                            <th>Mã hóa đơn</th>
+                                            <th>Mã đơn hàng</th>
+                                            <th>Ngày tạo</th>
+                                            <th>Giá trị</th>
                                             <th>Trạng thái</th>
+                                            <th>Chú thích</th>
                                             <th>Chi tiết</th>
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <tr>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                        </tr>
+                                        <c:forEach items="${listOrder}" var="i">
+                                            <tr>
+                                                <td>${i.id}</td>
+                                                <td>${i.fmDate}</td>
+                                                <td><fmt:formatNumber type="number" maxFractionDigits="3" value="${i.totalPrice}"/><sup>đ</sup></td>
+                                                <td>${i.status == 1 ? "Đang xử lý" : i.status == 2 ? "Đang giao hàng" : i.status == 3 ? "Giao hàng thành công" : i.status == 4 ? "Đang hủy đơn hàng" : "Đã hủy bỏ"}</td>
+                                                <td>${i.note == null ? "--" : i.note}</td>
+                                                <td><a href="orders?id=${i.id}" class="g-color">Chi tiết</a></td>
+                                            </tr>
+                                        </c:forEach>
                                     </tbody>
                                 </table>
                             </div>
@@ -70,7 +76,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
 
         <!-- Optional JavaScript -->
@@ -83,11 +88,19 @@
         <script src="js/datatables/datatables.vietnamese.js"></script>
         <script>
             $(document).ready(function () {
-                var dtable = $('#accounts').dataTable({
+                $('#orders').dataTable({
                     "oLanguage": vietnamese
                 });
                 $('#orders').DataTable();
             });
         </script>
+        <c:if test="${listOrderDetail ne null}">
+            <script>
+                $(document).ready(function () {
+                    $('#myModal').modal('show');
+                });
+            </script>
+            <%@include file="user-modal-order-detail.jsp"%>
+        </c:if>
     </body>
 </html>

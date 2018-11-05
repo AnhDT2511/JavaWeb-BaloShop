@@ -97,7 +97,7 @@
                         <td>${i.id}</td>
                         <td>${i.name}</td>
                         <td>${i.quantity}</td>
-                        <td>${i.price}</td>
+                        <td><fmt:formatNumber type="number" maxFractionDigits="3" value="${i.price}"/><sup>đ</sup></td>
                         <td>${i.status == 1 ? "Còn hàng" : i.status == 2 ? "Giảm giá" : "Hết hàng"}</td>
                         <td>
                             <a href="#" data-toggle="modal" data-target="#myModal" class="g-color">Chi tiết</a>

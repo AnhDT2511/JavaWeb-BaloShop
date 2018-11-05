@@ -5,8 +5,9 @@
  */
 package client.controller;
 
-import entity.Category;
-import entity.Product;
+import entity.Account;
+import entity.Order;
+import entity.OrderDetail;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -15,16 +16,17 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.CategoryModel;
-import model.ProductModel;
+import javax.servlet.http.HttpSession;
+import model.OrderDetailModel;
+import model.OrderModel;
 import utils.NumberUtil;
 
 /**
  *
  * @author Shado
  */
-@WebServlet(name = "FilterProduct", urlPatterns = {"/filter"})
-public class FilterProduct extends HttpServlet {
+@WebServlet(name = "GetAccountOrders", urlPatterns = {"/orders"})
+public class GetAccountOrders extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,37 +39,28 @@ public class FilterProduct extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.setCharacterEncoding("UTF-8");
-        response.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            String cId = request.getParameter("categoryId");
-            int categoryId = 0;
-
-            ArrayList<Category> listCategory = new CategoryModel().getAllCategory();
-            request.setAttribute("listCategory", listCategory);
-
-            ArrayList<Product> listProduct = new ArrayList<>();
-
-            if (cId != null) {
-                categoryId = NumberUtil.getNumber(request.getParameter("categoryId"), 0);
+            /* TODO output your page here. You may use following sample code. */
+            HttpSession session = request.getSession();
+            Account account = (Account) session.getAttribute("currentLoginAccount");
+            
+            ArrayList<Order> listOrder = new OrderModel().getOrderById(account.getId());
+            
+            String sOrderId = request.getParameter("id");
+            int orderId;
+            
+            orderId = NumberUtil.getNumber(sOrderId, 0);
+            
+            if(orderId != 0){
+                ArrayList<OrderDetail> listOrderDetail = new OrderDetailModel().getOrderDetailByOrderId(orderId);
+                request.setAttribute("listOrderDetail", listOrderDetail);
+            }else{
+                System.out.println("Check!!!");
             }
-
-            if (categoryId == 0) {
-                listProduct = new ProductModel().getAllProduct();
-            } else {
-                listProduct = new ProductModel().getAllProductsByCategory(categoryId);
-            }
-
-            // response
-            if (listProduct != null) {
-                request.setAttribute("listProduct", listProduct);
-                request.setAttribute("cId", categoryId);
-                request.getRequestDispatcher("products.jsp").forward(request, response);
-            } else {
-                request.setAttribute("listProduct", null);
-                request.getRequestDispatcher("products.jsp").forward(request, response);
-            }
+            
+            request.setAttribute("listOrder", listOrder);
+            request.getRequestDispatcher("user-orders.jsp").forward(request, response);
         }
     }
 

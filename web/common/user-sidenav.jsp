@@ -17,7 +17,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="user-orders.jsp">
+                    <a class="nav-link" href="orders">
                         <i class="mr-2"></i> Đơn hàng
                     </a>
                 </li>

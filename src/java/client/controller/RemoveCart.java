@@ -18,7 +18,7 @@ import javax.servlet.http.HttpSession;
  *
  * @author Shado
  */
-@WebServlet(name = "RemoveCart", urlPatterns = {"/removeCart"})
+@WebServlet(name = "RemoveCart", urlPatterns = {"/removecart"})
 public class RemoveCart extends HttpServlet {
 
     /**

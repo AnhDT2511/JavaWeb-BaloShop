@@ -16,19 +16,23 @@ public class Order {
     private String date;
     private double totalPrice;
     private String note;
+    private int status;
+    private String fmDate;
 
-    public Order(int accountId, double totalPrice, String note) {
+    public Order(int accountId, double totalPrice, String note, int status) {
         this.accountId = accountId;
         this.totalPrice = totalPrice;
         this.note = note;
+        this.status = status;
     }
 
-    public Order(int id, int accountId, String date, double totalPrice, String note) {
+    public Order(int id, int accountId, String date, double totalPrice, String note, int status) {
         this.id = id;
         this.accountId = accountId;
         this.date = date;
         this.totalPrice = totalPrice;
         this.note = note;
+        this.status = status;
     }
 
     public int getId() {
@@ -69,5 +73,22 @@ public class Order {
 
     public void setNote(String note) {
         this.note = note;
+    }
+
+    public int getStatus() {
+        return status;
+    }
+
+    public void setStatus(int status) {
+        this.status = status;
+    }
+    
+    public String getFmDate() {
+        String[] str = this.date.split("-");
+        return str[2] + "-" + str[1] + "-" + str[0];
+    }
+
+    public void setFmDate(String fmDate) {
+        this.fmDate = fmDate;
     }
 }

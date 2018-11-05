@@ -44,7 +44,7 @@
                                 </h6>
                             </div>
                         </div>
-                        <div class="row mt-2">
+                        <div class="row mt-1">
                             <div class="col-md-12">
                                 <div class="m-info">
                                     <table>
@@ -111,7 +111,7 @@
                                 </h6>
                             </div>
                         </div> 
-                        <div class="row mt-2">
+                        <div class="row mt-1">
                             <div class="col-md-12">
                                 <div class="m-info">
                                     <table>

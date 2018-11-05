@@ -102,7 +102,7 @@
                 </h4>
                 <a href="products.jsp" class="btn btn-info mt-3">Tiếp tục mua hàng</a>
                 <a href="checkout.jsp" class="btn btn-success float-right mt-3">Tiếp tục thanh toán</a>
-                <a href="removeCart" class="btn btn-danger float-right mt-3 mr-2">Xóa giỏ hàng</a>
+                <a href="removecart" class="btn btn-danger float-right mt-3 mr-2">Xóa giỏ hàng</a>
             </c:if>
         </div>
 

@@ -5,26 +5,21 @@
  */
 package client.controller;
 
-import entity.Category;
-import entity.Product;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.util.ArrayList;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import model.CategoryModel;
-import model.ProductModel;
 import utils.NumberUtil;
 
 /**
  *
  * @author Shado
  */
-@WebServlet(name = "FilterProduct", urlPatterns = {"/filter"})
-public class FilterProduct extends HttpServlet {
+@WebServlet(name = "GetOrderDetail", urlPatterns = {"/orderdetail"})
+public class GetOrderDetail extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -37,37 +32,13 @@ public class FilterProduct extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        request.setCharacterEncoding("UTF-8");
-        response.setCharacterEncoding("UTF-8");
         response.setContentType("text/html;charset=UTF-8");
         try (PrintWriter out = response.getWriter()) {
-            String cId = request.getParameter("categoryId");
-            int categoryId = 0;
+            /* TODO output your page here. You may use following sample code. */
+            String sid = request.getParameter("id");
+            int id = 0;
 
-            ArrayList<Category> listCategory = new CategoryModel().getAllCategory();
-            request.setAttribute("listCategory", listCategory);
-
-            ArrayList<Product> listProduct = new ArrayList<>();
-
-            if (cId != null) {
-                categoryId = NumberUtil.getNumber(request.getParameter("categoryId"), 0);
-            }
-
-            if (categoryId == 0) {
-                listProduct = new ProductModel().getAllProduct();
-            } else {
-                listProduct = new ProductModel().getAllProductsByCategory(categoryId);
-            }
-
-            // response
-            if (listProduct != null) {
-                request.setAttribute("listProduct", listProduct);
-                request.setAttribute("cId", categoryId);
-                request.getRequestDispatcher("products.jsp").forward(request, response);
-            } else {
-                request.setAttribute("listProduct", null);
-                request.getRequestDispatcher("products.jsp").forward(request, response);
-            }
+            id = NumberUtil.getNumber(sid, 0);
         }
     }
 
