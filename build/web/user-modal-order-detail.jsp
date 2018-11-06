@@ -18,36 +18,56 @@
                     </button>
                 </div>
                 <div class="modal-body">
-                    <table class="table mt-1">
-                        <thead>
-                            <tr>
-                                <th scope="col">STT</th>
-                                <th scope="col">Tên sản phẩm</th>
-                                <th scope="col">Giá</th>
-                                <th scope="col">Số lượng</th>
-                                <th scope="col">Tổng</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        <c:if test="${listOrderDetail ne null}">
-                            <c:forEach items="${listOrderDetail}" var="i" varStatus="no">
+                    <h6>Danh sách sản phẩm</h6>
+                    <div class="products-info mt-2">
+                        <table class="table mt-1 mb-1">
+                            <thead>
                                 <tr>
-                                    <th scope="row">${no.index+1}</th>
-                                    <td>${i.productName}</td>
-                                    <td>
-                                <fmt:formatNumber type="number" maxFractionDigits="3" value="${i.productPrice}"/><sup>đ</sup>
-                                </td>
-                                <td class="text-center">
-                                    ${i.quantity}
-                                </td>
-                                <td>
-                                <fmt:formatNumber type="number" maxFractionDigits="3" value="${i.productPrice * i.quantity}"/><sup>đ</sup>
-                                </td>
+                                    <th scope="col">STT</th>
+                                    <th scope="col">Tên sản phẩm</th>
+                                    <th scope="col">Giá</th>
+                                    <th scope="col">Số lượng</th>
+                                    <th scope="col">Tổng</th>
                                 </tr>
-                            </c:forEach> 
-                        </c:if>
-                        </tbody>
-                    </table>
+                            </thead>
+                            <tbody>
+                            <c:if test="${listOrderDetail ne null}">
+                                <c:forEach items="${listOrderDetail}" var="i" varStatus="no">
+                                    <tr>
+                                        <th scope="row">${no.index+1}</th>
+                                        <td>${i.productName}</td>
+                                        <td>
+                                    <fmt:formatNumber type="number" maxFractionDigits="3" value="${i.productPrice}"/><sup>đ</sup>
+                                    </td>
+                                    <td class="text-center">
+                                        ${i.quantity}
+                                    </td>
+                                    <td>
+                                    <fmt:formatNumber type="number" maxFractionDigits="3" value="${i.productPrice * i.quantity}"/><sup>đ</sup>
+                                    </td>
+                                    </tr>
+                                </c:forEach> 
+                            </c:if>
+                            </tbody>
+                        </table>
+                    </div>
+                    <h6 class="mt-3">Thông tin giao hàng</h6>
+                    <div class="address-info mt-2">
+                        <table>
+                            <tr>
+                                <td>Họ và tên:</td>
+                                <td><b>${addressDetail.name}</b></td>
+                            </tr>
+                            <tr>
+                                <td>Số điện thoại:</td>
+                                <td>${addressDetail.phoneNumber}</td>
+                            </tr>
+                            <tr>
+                                <td>Địa chỉ:</td>
+                                <td>${addressDetail.address}</td>
+                            </tr>
+                        </table>
+                    </div>
                 </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-danger btn-sm" name="cancelOrder">Hủy đơn hàng</button>

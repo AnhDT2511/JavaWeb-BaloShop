@@ -47,7 +47,7 @@ public class CalculateCart extends HttpServlet {
 
             HttpSession session = request.getSession();
             List<Cart> listOrder = null;
-            listOrder = (ArrayList<Cart>) session.getAttribute("listOrder");
+            listOrder = (ArrayList<Cart>) session.getAttribute("listCart");
 
             if (more == 0) {
                 for (int i = 0; i < listOrder.size(); i++) {
@@ -87,7 +87,7 @@ public class CalculateCart extends HttpServlet {
                 }
             }
 
-            session.setAttribute("listOrder", listOrder);
+            session.setAttribute("listCart", listOrder);
             response.sendRedirect("cart.jsp");
         }
     }

@@ -25,7 +25,7 @@ import javax.servlet.http.HttpSession;
  * @author Shado
  */
 @WebFilter(filterName = "CalculateTotalPrice", urlPatterns = {"/cart.jsp"})
-public class CalculateTotalPrice implements Filter {
+public class FCalculateTotalPrice implements Filter {
 
     /**
      *
@@ -46,7 +46,7 @@ public class CalculateTotalPrice implements Filter {
 
         HttpSession session = req.getSession();
         List<Cart> listOrder = null;
-        listOrder = (ArrayList<Cart>) session.getAttribute("listOrder");
+        listOrder = (ArrayList<Cart>) session.getAttribute("listCart");
 
         double totalPrice = 0;
         if (listOrder == null) {

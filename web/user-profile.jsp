@@ -104,7 +104,7 @@
                             </div>
                         </div>
 
-                        <div class="row title mt-4">
+                        <div class="row title">
                             <div class="col-md-12">
                                 <h6>
                                     Thông tin cá nhân
@@ -164,7 +164,7 @@
                                                 <div class="form-group col-md-12">
                                                     <textarea class="form-control" rows="3" name="address" placeholder="Địa chỉ"></textarea>
                                                 </div>
-                                                <input type="submit" class="btn btn-success btn-sm ml-3" name="btnUpload" value="Thêm sản phẩm">
+                                                <input type="submit" class="btn btn-success btn-sm ml-3" name="btnUpload" value="Xác nhận">
                                             </form>
                                         </div>
                                     </div>

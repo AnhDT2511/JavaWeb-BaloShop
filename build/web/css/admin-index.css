@@ -6,6 +6,7 @@
     vertical-align: bottom;
     border-bottom: 2px solid #d0d0d0;
     color: #555 !important;
+    font-weight: 500;
 }
 
 .table>thead:first-child>tr:first-child>th {

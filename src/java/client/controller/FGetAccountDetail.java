@@ -25,7 +25,7 @@ import model.AccountDetailModel;
  * @author Shado
  */
 @WebFilter(filterName = "GetAccountDetail", urlPatterns = {"/checkout.jsp", "/user-profile.jsp"})
-public class GetAccountDetail implements Filter {
+public class FGetAccountDetail implements Filter {
 
     /**
      *

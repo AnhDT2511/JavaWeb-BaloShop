@@ -43,4 +43,31 @@ public class OtherAddressModel {
         }
         return isCheck > 0;
     }
+    
+    public OtherAddress getOtherAddressByOrderId(int orderId) {
+        String query = "SELECT * FROM Other_Address WHERE Order_Id = ?";
+        try {
+            connection = MSSQLConnection.getConnection();
+            ps = connection.prepareStatement(query);
+            ps.setInt(1, orderId);
+            rs = ps.executeQuery();
+            if (rs.next()) {
+                OtherAddress otherAddress = new OtherAddress(
+                        rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getString(4),
+                        rs.getInt(5)
+                );
+                return otherAddress;
+            }
+        } catch (SQLException e) {
+            System.out.println(e);
+        } finally {
+            MSSQLConnection.closeResultSet(rs);
+            MSSQLConnection.closePreparedStatement(ps);
+            MSSQLConnection.closeConnection(connection);
+        }
+        return null;
+    }
 }

@@ -38,7 +38,7 @@ public class RemoveCart extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             /* TODO output your page here. You may use following sample code. */
             HttpSession session = request.getSession(true);
-            session.removeAttribute("listOrder");
+            session.removeAttribute("listCart");
             session.removeAttribute("totalPrice");
             response.sendRedirect("cart.jsp");
         }

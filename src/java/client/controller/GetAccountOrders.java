@@ -8,6 +8,7 @@ package client.controller;
 import entity.Account;
 import entity.Order;
 import entity.OrderDetail;
+import entity.OtherAddress;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
@@ -19,6 +20,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import model.OrderDetailModel;
 import model.OrderModel;
+import model.OtherAddressModel;
 import utils.NumberUtil;
 
 /**
@@ -53,7 +55,9 @@ public class GetAccountOrders extends HttpServlet {
             orderId = NumberUtil.getNumber(sOrderId, 0);
             
             if(orderId != 0){
+                OtherAddress otherAddress = new OtherAddressModel().getOtherAddressByOrderId(orderId);
                 ArrayList<OrderDetail> listOrderDetail = new OrderDetailModel().getOrderDetailByOrderId(orderId);
+                request.setAttribute("addressDetail", otherAddress);
                 request.setAttribute("listOrderDetail", listOrderDetail);
             }else{
                 System.out.println("Check!!!");

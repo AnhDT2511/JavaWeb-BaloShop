@@ -38,7 +38,7 @@ public class Logout extends HttpServlet {
         try (PrintWriter out = response.getWriter()) {
             HttpSession session = request.getSession(true);
             session.removeAttribute("currentLoginAccount");
-            session.removeAttribute("listOrder");
+            session.removeAttribute("listCart");
             session.removeAttribute("totalPrice");
             response.sendRedirect("login.jsp");
         }

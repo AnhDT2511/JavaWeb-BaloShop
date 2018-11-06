@@ -46,7 +46,32 @@
                         </div>
 
                         <div class="row mt-2">
-
+                            <div class="col-md-12">
+                                <table id="history" table class="table table-bordered" cellspacing="0" width="100%">
+                                    <thead>
+                                        <tr>
+                                            <th>Mã đơn hàng</th>
+                                            <th>Ngày tạo</th>
+                                            <th>Giá trị</th>
+                                            <th>Trạng thái</th>
+                                            <th>Chú thích</th>
+                                            <th>Chi tiết</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <c:forEach items="${listOrder}" var="i">
+                                            <tr>
+                                                <td>${i.id}</td>
+                                                <td>${i.fmDate}</td>
+                                                <td><fmt:formatNumber type="number" maxFractionDigits="3" value="${i.totalPrice}"/><sup>đ</sup></td>
+                                                <td>${i.status == 1 ? "Đang xử lý" : i.status == 2 ? "Đang giao hàng" : i.status == 3 ? "Giao hàng thành công" : i.status == 4 ? "Đang hủy đơn hàng" : "Đã hủy bỏ"}</td>
+                                                <td>${i.note == null ? "--" : i.note}</td>
+                                                <td><a href="orders?id=${i.id}" class="g-color">Chi tiết</a></td>
+                                            </tr>
+                                        </c:forEach>
+                                    </tbody>
+                                </table>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -62,5 +87,13 @@
         <script src="js/bootstrap/bootstrap.min.js"></script>
         <script src="js/datatables/jquery.dataTables.min.js"></script>
         <script src="js/datatables/datatables.vietnamese.js"></script>
+        <script>
+            $(document).ready(function () {
+                $('#history').dataTable({
+                    "oLanguage": vietnamese
+                });
+                $('#history').DataTable();
+            });
+        </script>
     </body>
 </html>

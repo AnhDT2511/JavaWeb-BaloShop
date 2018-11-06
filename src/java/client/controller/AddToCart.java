@@ -60,13 +60,13 @@ public class AddToCart extends HttpServlet {
 
             HttpSession session = request.getSession();
             List<Cart> listOrder = null;
-            listOrder = (ArrayList<Cart>) session.getAttribute("listOrder");
+            listOrder = (ArrayList<Cart>) session.getAttribute("listCart");
 
             boolean flat = true;
             if (listOrder == null) {
                 listOrder = new ArrayList<>();
                 listOrder.add(cart);
-                session.setAttribute("listOrder", listOrder);
+                session.setAttribute("listCart", listOrder);
             } else {
                 for (Cart c : listOrder) {
                     if (c.getProductId() == id) {
@@ -78,7 +78,7 @@ public class AddToCart extends HttpServlet {
                     listOrder.add(cart);
                     flat = true;
                 }
-                session.setAttribute("listOrder", listOrder);
+                session.setAttribute("listCart", listOrder);
             }
             if (derect) {
                 response.sendRedirect("products.jsp");

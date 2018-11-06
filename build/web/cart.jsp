@@ -24,28 +24,29 @@
             .btn-number{
                 padding: 2px 8px;
             }
-
             table {
                 border-bottom: 1px solid #dee2e6;
             }
-            
             table tr td a:hover {
                 color: #f96332;
                 text-decoration: none;
-            }           
+            }
+            .table>thead>tr>th {
+                font-weight: 500;
+            }
         </style>
     </head>
     <body>
         <%@include file="common/nav.jsp"%>
 
         <div class="container pt-5 pb-5">
-            <c:if test="${listOrder eq null}">
+            <c:if test="${listCart eq null}">
                 <h5 class="text-center">Không có sản phẩm nào trong giỏ hàng.</h5>
                 <div class="text-center">
                     <a href="products.jsp" class="btn btn-info mt-3">Tiếp tục mua hàng</a>
                 </div>
             </c:if>
-            <c:if test="${listOrder ne null}">
+            <c:if test="${listCart ne null}">
                 <h5>Giỏ hàng của bạn:</h5>
                 <table class="table table-striped mt-3">
                     <thead>
@@ -59,37 +60,28 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <c:if test="${listOrder eq null}">
+                        <c:forEach items="${listCart}" var="i" varStatus="no">
                             <tr>
-                                <td colspan="6">
-                                    Không có sản phẩm nào trong giỏ hàng.
+                                <th scope="row">${no.index+1}</th>
+                                <td>
+                                    <a href="product?id=${i.productId}" target="_blank">${i.name}</a>
+                                </td>
+                                <td>
+                                    <fmt:formatNumber type="number" maxFractionDigits="3" value="${i.unitPrice}"/><sup>đ</sup>
+                                </td>
+                                <td>
+                                    <a class="btn-number " href="calculatecart?more=1&id=${i.productId}">-</a>
+                                    ${i.quantity}
+                                    <a class="btn-number" href="calculatecart?more=2&id=${i.productId}">+</a>
+                                </td>
+                                <td>
+                                    <fmt:formatNumber type="number" maxFractionDigits="3" value="${i.unitPrice * i.quantity}"/><sup>đ</sup>
+                                </td>
+                                <td>
+                                    <a href="calculatecart?more=0&id=${i.productId}">Xóa</a>
                                 </td>
                             </tr>
-                        </c:if>
-                        <c:if test="${listOrder ne null}">
-                            <c:forEach items="${listOrder}" var="i" varStatus="no">
-                                <tr>
-                                    <th scope="row">${no.index+1}</th>
-                                    <td>
-                                        <a href="product?id=${i.productId}" target="_blank">${i.name}</a>
-                                    </td>
-                                    <td>
-                                        <fmt:formatNumber type="number" maxFractionDigits="3" value="${i.unitPrice}"/><sup>đ</sup>
-                                    </td>
-                                    <td>
-                                        <a class="btn-number " href="calculatecart?more=1&id=${i.productId}">-</a>
-                                        ${i.quantity}
-                                        <a class="btn-number" href="calculatecart?more=2&id=${i.productId}">+</a>
-                                    </td>
-                                    <td>
-                                        <fmt:formatNumber type="number" maxFractionDigits="3" value="${i.unitPrice * i.quantity}"/><sup>đ</sup>
-                                    </td>
-                                    <td>
-                                        <a href="calculatecart?more=0&id=${i.productId}">Xóa</a>
-                                    </td>
-                                </tr>
-                            </c:forEach> 
-                        </c:if>
+                        </c:forEach>
                     </tbody>
                 </table>
                 <h4 class="text-right mb-3">

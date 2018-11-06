@@ -50,7 +50,8 @@
                                 <table id="orders" table class="table table-bordered" cellspacing="0" width="100%">
                                     <thead>
                                         <tr>
-                                            <th>Mã đơn hàng</th>
+                                            <th>STT</th>
+                                            <th>Mã đơn</th>
                                             <th>Ngày tạo</th>
                                             <th>Giá trị</th>
                                             <th>Trạng thái</th>
@@ -59,12 +60,20 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <c:forEach items="${listOrder}" var="i">
+                                        <c:forEach items="${listOrder}" var="i" varStatus="no">
                                             <tr>
+                                                <td>${no.index+1}</td>
                                                 <td>${i.id}</td>
                                                 <td>${i.fmDate}</td>
                                                 <td><fmt:formatNumber type="number" maxFractionDigits="3" value="${i.totalPrice}"/><sup>đ</sup></td>
-                                                <td>${i.status == 1 ? "Đang xử lý" : i.status == 2 ? "Đang giao hàng" : i.status == 3 ? "Giao hàng thành công" : i.status == 4 ? "Đang hủy đơn hàng" : "Đã hủy bỏ"}</td>
+                                                <td class="text-center">
+                                                    <c:if test="${i.status == 1}">
+                                                        <button type="button" class="btn btn-primary br" data-toggle="tooltip" data-placement="right" title="Đang xử lý"></button>
+                                                    </c:if>
+                                                    <c:if test="${i.status == 2}">
+                                                        <button type="button" class="btn btn-warning br" data-toggle="tooltip" data-placement="right" title="Đang giao hàng"></button>
+                                                    </c:if>
+                                                </td>
                                                 <td>${i.note == null ? "--" : i.note}</td>
                                                 <td><a href="orders?id=${i.id}" class="g-color">Chi tiết</a></td>
                                             </tr>
@@ -92,6 +101,8 @@
                     "oLanguage": vietnamese
                 });
                 $('#orders').DataTable();
+                              
+                $('[data-toggle="tooltip"]').tooltip();   
             });
         </script>
         <c:if test="${listOrderDetail ne null}">

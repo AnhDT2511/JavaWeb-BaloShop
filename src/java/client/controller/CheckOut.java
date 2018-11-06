@@ -53,7 +53,7 @@ public class CheckOut extends HttpServlet {
 
             HttpSession session = request.getSession();
             Account account = (Account) session.getAttribute("currentLoginAccount");
-            List<Cart> listOrder = (List<Cart>) session.getAttribute("listOrder");
+            List<Cart> listOrder = (List<Cart>) session.getAttribute("listCart");
             double totalPrice = (double) session.getAttribute("totalPrice");
 
             Order order = new Order(account.getId(), totalPrice, note, 1);
@@ -77,7 +77,7 @@ public class CheckOut extends HttpServlet {
                         }
                         boolean isCheckAddAddress = new OtherAddressModel().addOtherAddress(otherAddress);
                         if (isCheckAddAddress) {
-                            session.removeAttribute("listOrder");
+                            session.removeAttribute("listCart");
                             session.removeAttribute("totalPrice");
                             response.sendRedirect("thanks.jsp");
                         }

@@ -2,6 +2,7 @@
     vertical-align: bottom;
     border-bottom: 2px solid #d0d0d0;
     color: #555 !important;
+    font-weight: 500;
 }
 
 .table>thead:first-child>tr:first-child>th {
@@ -272,4 +273,24 @@ td {
 
 .g-color:hover {
     color: #ed1d27;
+}
+
+.products-info {
+    padding: 0 1rem;
+    border: 1px dashed #ccc;
+    border-radius: .25rem;
+}
+
+.address-info {
+    padding: .55rem 1rem;
+    border: 1px dashed #ccc;
+    border-radius: .25rem;
+}
+
+.br {
+    border-radius: 1rem;
+}
+
+.table .btn {
+    padding: .4rem;
 }

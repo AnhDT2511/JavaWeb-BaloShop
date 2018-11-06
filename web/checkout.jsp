@@ -34,19 +34,22 @@
             h4 {
                 border-bottom: 1px dashed #f96332;
             }
+            .table>thead>tr>th {
+                font-weight: 500;
+            }
         </style>
     </head>
     <body>
         <%@include file="common/nav.jsp"%>
 
         <div class="container pt-5 pb-5">
-            <c:if test="${listOrder eq null}">
+            <c:if test="${listCart eq null}">
                 <h5 class="text-center">Không có sản phẩm nào trong giỏ hàng.</h5>
                 <div class="text-center">
                     <a href="products.jsp" class="btn btn-info mt-3">Tiếp tục mua hàng</a>
                 </div>
             </c:if>
-            <c:if test="${listOrder ne null}">
+            <c:if test="${listCart ne null}">
                 <div class="row">
                     <div class="col-md-12">
                         <h5>Thông tin mua hàng</h5>
@@ -67,30 +70,21 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <c:if test="${listOrder eq null}">
+                                    <c:forEach items="${listCart}" var="i" varStatus="no">
                                         <tr>
-                                            <td colspan="6">
-                                                Không có sản phẩm nào trong giỏ hàng.
+                                            <th scope="row">${no.index+1}</th>
+                                            <td>${i.name}</td>
+                                            <td>
+                                                <fmt:formatNumber type="number" maxFractionDigits="3" value="${i.unitPrice}"/><sup>đ</sup>
+                                            </td>
+                                            <td class="text-center">
+                                                ${i.quantity}
+                                            </td>
+                                            <td>
+                                                <fmt:formatNumber type="number" maxFractionDigits="3" value="${i.unitPrice * i.quantity}"/><sup>đ</sup>
                                             </td>
                                         </tr>
-                                    </c:if>
-                                    <c:if test="${listOrder ne null}">
-                                        <c:forEach items="${listOrder}" var="i" varStatus="no">
-                                            <tr>
-                                                <th scope="row">${no.index+1}</th>
-                                                <td>${i.name}</td>
-                                                <td>
-                                                    <fmt:formatNumber type="number" maxFractionDigits="3" value="${i.unitPrice}"/><sup>đ</sup>
-                                                </td>
-                                                <td class="text-center">
-                                                    ${i.quantity}
-                                                </td>
-                                                <td>
-                                                    <fmt:formatNumber type="number" maxFractionDigits="3" value="${i.unitPrice * i.quantity}"/><sup>đ</sup>
-                                                </td>
-                                            </tr>
-                                        </c:forEach> 
-                                    </c:if>
+                                    </c:forEach>
                                 </tbody>
                             </table>
                         </div>
@@ -133,7 +127,7 @@
                         <a href="checkout" class="btn btn-danger mt-4 w-100">Xác nhận giao hàng đến địa chỉ này</a>
                     </div>
                 </div>
-                    
+
                 <div class="row mt-4">
                     <div class="col-md-8 collapse" id="inputForm">
                         <h5>Nhập thông tin địa chỉ giao hàng mới</h5>

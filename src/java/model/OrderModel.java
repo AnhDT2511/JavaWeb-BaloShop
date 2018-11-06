@@ -52,11 +52,13 @@ public class OrderModel {
     
     public ArrayList<Order> getOrderById(int accountId){
         ArrayList<Order> list = new ArrayList<>();
-        String query = "SELECT * FROM [Order] WHERE Account_Id = ?";
+        String query = "SELECT * FROM [Order] WHERE Account_Id = ? AND Status = ? OR Status = ?";
         try {
             connection = MSSQLConnection.getConnection();
             ps = connection.prepareStatement(query);
             ps.setInt(1, accountId);
+            ps.setInt(2, 1);
+            ps.setInt(3, 2);
             rs = ps.executeQuery();
             while (rs.next()) {
                 Order order = new Order(
