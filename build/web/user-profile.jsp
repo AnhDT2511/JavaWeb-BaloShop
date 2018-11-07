@@ -86,17 +86,18 @@
                                 <div class="collapse mb-2" id="changePassword">
                                     <div class="card">
                                         <div class="card-body">
-                                            <form action="" method="post">
+                                            <form action="changepassword" method="post">
                                                 <div class="form-group col-md-6">
-                                                    <input type="text" class="form-control" name="password" placeholder="Nhập mật khẩu hiện tại">
+                                                    <input type="password" class="form-control" name="password" placeholder="Nhập mật khẩu hiện tại">
                                                 </div>
                                                 <div class="form-group col-md-6">
-                                                    <input type="text" class="form-control" name="newPassword" placeholder="Nhập mật khẩu mới">
+                                                    <input type="password" class="form-control" name="newPassword" placeholder="Nhập mật khẩu mới">
                                                 </div>
                                                 <div class="form-group col-md-6">
-                                                    <input type="text" class="form-control" name="newPasswordCf" placeholder="Nhập lại mật khẩu mới">
+                                                    <input type="password" class="form-control" name="newPasswordCf" placeholder="Nhập lại mật khẩu mới">
                                                 </div>
-                                                <input type="submit" class="btn btn-success btn-sm ml-3" name="btnUpload" value="Đổi mật khẩu">
+                                                <input type="submit" class="btn btn-success btn-sm ml-3 mr-5" name="btnChangePassword" value="Đổi mật khẩu">
+                                                <span>${message}</span>
                                             </form>
                                         </div>
                                     </div>

@@ -135,7 +135,22 @@ public class AccountModel {
         return isCheck > 0;
     }
 
-    public boolean updateAccount(Account account, int id) {
-        return false;
+    public boolean updatePassword(String newPassword, int id) {
+        int isCheck = 0;
+        String query = "UPDATE Account set Password = ? WHERE Id = ?";
+        try {
+            connection = MSSQLConnection.getConnection();
+            ps = connection.prepareStatement(query);
+            ps.setString(1, newPassword);
+            ps.setInt(2, id);
+            isCheck = ps.executeUpdate();
+        } catch (SQLException e) {
+            System.out.println(e);
+        } finally {
+            MSSQLConnection.closeResultSet(rs);
+            MSSQLConnection.closePreparedStatement(ps);
+            MSSQLConnection.closeConnection(connection);
+        }
+        return isCheck > 0;
     }
 }
