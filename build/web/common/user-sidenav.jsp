@@ -22,7 +22,7 @@
                     </a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="user-history.jsp">
+                    <a class="nav-link" href="history">
                         <i class="mr-2"></i> Lịch sử mua hàng
                     </a>
                 </li>

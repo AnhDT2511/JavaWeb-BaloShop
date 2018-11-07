@@ -52,13 +52,49 @@ public class OrderModel {
     
     public ArrayList<Order> getOrderById(int accountId){
         ArrayList<Order> list = new ArrayList<>();
-        String query = "SELECT * FROM [Order] WHERE Account_Id = ? AND Status = ? OR Status = ?";
+        String query = "SELECT * FROM [Order] WHERE Account_Id = ? AND Status = ? OR Account_Id = ? AND Status = ? OR Account_Id = ? AND Status = ?";
         try {
             connection = MSSQLConnection.getConnection();
             ps = connection.prepareStatement(query);
             ps.setInt(1, accountId);
             ps.setInt(2, 1);
-            ps.setInt(3, 2);
+            ps.setInt(3, accountId);
+            ps.setInt(4, 2);
+            ps.setInt(5, accountId);
+            ps.setInt(6, 4);
+            rs = ps.executeQuery();
+            while (rs.next()) {
+                Order order = new Order(
+                        rs.getInt(1),
+                        rs.getInt(2),
+                        rs.getString(3),
+                        rs.getDouble(4),
+                        rs.getString(5),
+                        rs.getInt(6)
+                );
+                list.add(order);
+            }
+            return list;
+        } catch (SQLException e) {
+            System.out.println(e);
+        } finally {
+            MSSQLConnection.closeResultSet(rs);
+            MSSQLConnection.closePreparedStatement(ps);
+            MSSQLConnection.closeConnection(connection);
+        }
+        return null;
+    }
+    
+    public ArrayList<Order> getOrderHistoryById(int accountId){
+        ArrayList<Order> list = new ArrayList<>();
+        String query = "SELECT * FROM [Order] WHERE Account_Id = ? AND Status = ? OR Account_Id = ? AND Status = ?";
+        try {
+            connection = MSSQLConnection.getConnection();
+            ps = connection.prepareStatement(query);
+            ps.setInt(1, accountId);
+            ps.setInt(2, 3);
+            ps.setInt(3, accountId);
+            ps.setInt(4, 5);
             rs = ps.executeQuery();
             while (rs.next()) {
                 Order order = new Order(

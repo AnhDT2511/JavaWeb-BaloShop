@@ -73,6 +73,9 @@
                                                     <c:if test="${i.status == 2}">
                                                         <button type="button" class="btn btn-warning br" data-toggle="tooltip" data-placement="right" title="Đang giao hàng"></button>
                                                     </c:if>
+                                                    <c:if test="${i.status == 4}">
+                                                        <button type="button" class="btn btn-danger br" data-toggle="tooltip" data-placement="right" title="Đang hủy đơn hàng"></button>
+                                                    </c:if>   
                                                 </td>
                                                 <td>${i.note == null ? "--" : i.note}</td>
                                                 <td><a href="orders?id=${i.id}" class="g-color">Chi tiết</a></td>

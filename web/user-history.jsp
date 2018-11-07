@@ -59,7 +59,7 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                        <c:forEach items="${listOrder}" var="i">
+                                        <c:forEach items="${listHistory}" var="i">
                                             <tr>
                                                 <td>${i.id}</td>
                                                 <td>${i.fmDate}</td>
