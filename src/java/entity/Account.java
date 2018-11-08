@@ -18,7 +18,6 @@ public class Account {
     private int roleId;
     private int status;
     private String createDate;
-    private String fmDate;
 
     public Account(String email, String password, int accountDetailId, int roleId, int status) {
         this.email = email;
@@ -97,9 +96,5 @@ public class Account {
     public String getFmDate() {
         String[] str = this.createDate.split("-");
         return str[2] + "-" + str[1] + "-" + str[0];
-    }
-
-    public void setFmDate(String fmDate) {
-        this.fmDate = fmDate;
     }
 }

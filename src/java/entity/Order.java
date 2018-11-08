@@ -17,7 +17,6 @@ public class Order {
     private double totalPrice;
     private String note;
     private int status;
-    private String fmDate;
 
     public Order(int accountId, double totalPrice, String note, int status) {
         this.accountId = accountId;
@@ -86,9 +85,5 @@ public class Order {
     public String getFmDate() {
         String[] str = this.date.split("-");
         return str[2] + "-" + str[1] + "-" + str[0];
-    }
-
-    public void setFmDate(String fmDate) {
-        this.fmDate = fmDate;
     }
 }
