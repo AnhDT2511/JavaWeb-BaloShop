@@ -239,7 +239,7 @@ label input:focus {
 /*======== Custom =========*/
 .m-info {
     border: 1px dashed #ccc;
-    padding: 10px 15px 15px;
+    padding: 8px 15px 12px;
     border-radius: .25rem;
 }
 
