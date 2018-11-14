@@ -9,7 +9,7 @@ body {
     font-family: "Segoe UI";
     color: #d0d5da;
     /* background-color: #222C31; */
-    background-color: #fff;
+    background-color: #e8e8e8;
     -webkit-user-select: none;
     /* Chrome all / Safari all */
     -moz-user-select: none;
@@ -55,13 +55,13 @@ h6 {
     margin-left: auto;
     margin-right: auto;
     min-width: 320px;
-    max-width: 340px;
+    max-width: 480px;
     width: calc(100% - 40px);
-    padding: 1.2rem 1.75rem 1rem;
+    padding: 4rem 4.75rem;
     margin-bottom: 30px;
     border-radius: .5rem;
     background-color: #ffffff;
-    border: 2px solid #afafaf;
+    border: 1px solid transparent;
 }
 
 .logo {

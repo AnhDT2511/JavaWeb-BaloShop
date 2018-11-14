@@ -63,7 +63,7 @@ public class Register extends HttpServlet {
                     request.setAttribute("message", "Email đăng ký đã tồn tại");
                     request.getRequestDispatcher("register.jsp").forward(request, response);
                 } else {
-                    if (StringUtil.validatePasswordConfirm(password, passwordCf)) {
+                    if (password.equals(passwordCf)) {
                         AccountDetail accountDetail = new AccountDetail(name, mobile, gender, address);
                         idAccountDetail = new AccountDetailModel().addAccountDetail(accountDetail);
                         if (idAccountDetail > 0) {

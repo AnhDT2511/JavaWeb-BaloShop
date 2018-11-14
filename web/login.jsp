@@ -33,15 +33,6 @@
                         </div>
                         <div class="form-group">
                             <div class="col">
-                                <label class="custom-control custom-checkbox">
-                                    <input type="checkbox" class="custom-control-input" id="login-remember-me" name="login-remember-me">
-                                    <span class="custom-control-indicator"></span>
-                                    <span class="custom-control-description">Ghi nhớ mật khẩu</span>
-                                </label>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col">
                                 <button type="submit" class="btn btn-sm">
                                     <i class="fas fa-sign-in-alt mr-1"></i> Đăng nhập
                                 </button>
