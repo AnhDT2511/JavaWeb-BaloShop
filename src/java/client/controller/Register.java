@@ -75,7 +75,7 @@ public class Register extends HttpServlet {
                         }
                     } else {
                         request.setAttribute("message", "Mật khẩu không đúng định dạng");
-                        request.getRequestDispatcher("register.jsp").forward(request, response);
+                        request.getRequestDispatcher("products.jsp").forward(request, response);
                     }
                 }
             }

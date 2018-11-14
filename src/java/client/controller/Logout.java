@@ -40,7 +40,7 @@ public class Logout extends HttpServlet {
             session.removeAttribute("currentLoginAccount");
             session.removeAttribute("listCart");
             session.removeAttribute("totalPrice");
-            response.sendRedirect("login.jsp");
+            response.sendRedirect("products.jsp");
         }
     }
 

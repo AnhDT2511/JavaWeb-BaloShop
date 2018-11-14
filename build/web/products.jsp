@@ -1,8 +1,9 @@
 <%-- 
-    Document   : products
-    Created on : Aug 17, 2018, 8:21:23 PM
+    Document   : nav
+    Created on : Aug 24, 2018, 7:57:01 PM
     Author     : Shado
 --%>
+
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
@@ -18,6 +19,8 @@
         <!-- Custom CSS -->
         <link rel="stylesheet" href="css/common.css">
         <link rel="stylesheet" href="css/products.css">
+        
+        <link rel="stylesheet" type="text/css" href="css/form.css">
     </head>
     <body>
         <%@include file="common/nav.jsp"%>
@@ -29,57 +32,6 @@
         <!-- Cover -->
         <div id="main-contain" class="container">
             <div class="row">
-                <div class="col-md-3">
-                    <div class="left-side">
-                        <div class="row title">
-                            <div class="col-md-12">
-                                <h6>Danh mục sản phẩm</h6>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <div class="side-nav">
-                                    <ul class="navbar-nav ml-auto">
-                                        <c:choose>
-                                            <c:when test="${cId == 0}">
-                                                <li class="nav-item">
-                                                    <a class="nav-link active" href="filter?categoryId=0">
-                                                        <i class="mr-2"></i> Tất cả
-                                                    </a>
-                                                </li>
-                                            </c:when>
-                                            <c:otherwise>
-                                                <li class="nav-item">
-                                                    <a class="nav-link" href="filter?categoryId=0">
-                                                        <i class="mr-2"></i> Tất cả
-                                                    </a>
-                                                </li>
-                                            </c:otherwise>
-                                        </c:choose>
-                                        <c:forEach items="${listCategory}" var="i">
-                                            <c:choose>
-                                                <c:when test="${cId == i.id}">
-                                                    <li class="nav-item">
-                                                        <a class="nav-link active" href="filter?categoryId=${i.id}">
-                                                            <i class="mr-2"></i> ${i.category}
-                                                        </a>
-                                                    </li>
-                                                </c:when>
-                                                <c:otherwise>
-                                                    <li class="nav-item">
-                                                        <a class="nav-link" href="filter?categoryId=${i.id}">
-                                                            <i class="mr-2"></i> ${i.category}
-                                                        </a>
-                                                    </li>
-                                                </c:otherwise>
-                                            </c:choose>
-                                        </c:forEach> 
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>                       
-                    </div>
-                </div>
                 <div class="col-md-9">
                     <div class="right-side">
                         <div class="row title">
@@ -131,6 +83,58 @@
                                 </c:if> 
                             </c:forEach> 
                         </div>
+                    </div>
+                </div>
+                <div class="col-md-1"></div>
+                <div class="col-md-2">
+                    <div class="left-side">
+                        <div class="row title">
+                            <div class="col-md-12">
+                                <h6>Danh mục</h6>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <div class="side-nav">
+                                    <ul class="navbar-nav ml-auto">
+                                        <c:choose>
+                                            <c:when test="${cId == 0}">
+                                                <li class="nav-item">
+                                                    <a class="nav-link active" href="filter?categoryId=0">
+                                                        <i class="mr-2"></i> Tất cả
+                                                    </a>
+                                                </li>
+                                            </c:when>
+                                            <c:otherwise>
+                                                <li class="nav-item">
+                                                    <a class="nav-link" href="filter?categoryId=0">
+                                                        <i class="mr-2"></i> Tất cả
+                                                    </a>
+                                                </li>
+                                            </c:otherwise>
+                                        </c:choose>
+                                        <c:forEach items="${listCategory}" var="i">
+                                            <c:choose>
+                                                <c:when test="${cId == i.id}">
+                                                    <li class="nav-item">
+                                                        <a class="nav-link active" href="filter?categoryId=${i.id}">
+                                                            <i class="mr-2"></i> ${i.category}
+                                                        </a>
+                                                    </li>
+                                                </c:when>
+                                                <c:otherwise>
+                                                    <li class="nav-item">
+                                                        <a class="nav-link" href="filter?categoryId=${i.id}">
+                                                            <i class="mr-2"></i> ${i.category}
+                                                        </a>
+                                                    </li>
+                                                </c:otherwise>
+                                            </c:choose>
+                                        </c:forEach> 
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>                       
                     </div>
                 </div>
             </div>

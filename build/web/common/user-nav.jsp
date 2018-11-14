@@ -36,10 +36,10 @@
                     </c:if>
                     <c:if test="${currentLoginAccount eq null}">
                         <li class="nav-item">
-                            <a class="nav-link" href="register.jsp">Đăng ký</a>
+                            <a class="nav-link" href="javascript:void(0)" data-toggle="modal" data-target="#register">Đăng ký</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="login.jsp">Đăng nhập</a>
+                            <a class="nav-link" href="javascript:void(0)" data-toggle="modal" data-target="#login">Đăng nhập</a>
                         </li>
                     </c:if>
                 </ul>

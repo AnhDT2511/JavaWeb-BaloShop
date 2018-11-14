@@ -52,7 +52,7 @@ public class Login extends HttpServlet {
                 }
             } else {
                 request.setAttribute("message", "Sai email hoặc mật khẩu");
-                request.getRequestDispatcher("login.jsp").forward(request, response);
+                request.getRequestDispatcher("products.jsp").forward(request, response);
             }
         }
     }

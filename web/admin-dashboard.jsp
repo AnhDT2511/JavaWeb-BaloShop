@@ -17,13 +17,13 @@
 
     <div class="row mt-2">
         <div class="col-md-4">
-            xxxxxxxxxxxxxxxxxxxxxxxxxx
+            <h4>Có 20 sản phẩm</h4>
         </div>
         <div class="col-md-4">
-            xxxxxxxxxxxxxxxxxxxxxxxxxx
+            <h4>Có 4 đơn hàng đang xử lý</h4>
         </div>
         <div class="col-md-4">
-            xxxxxxxxxxxxxxxxxxxxxxxxxx
+            <h4>Có 3 đơn hàng giao thành công</h4>
         </div>
     </div>
 </div>

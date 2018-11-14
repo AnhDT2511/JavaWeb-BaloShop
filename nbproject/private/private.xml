@@ -3,9 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/anhdt45/Documents/GitHub/JavaWeb-BaloShop/src/java/client/controller/Register.java</file>
-            <file>file:/C:/Users/anhdt45/Documents/GitHub/JavaWeb-BaloShop/src/java/utils/StringUtil.java</file>
-            <file>file:/C:/Users/anhdt45/Documents/GitHub/JavaWeb-BaloShop/web/register.jsp</file>
+            <file>file:/C:/Users/Shado/Documents/GitHub/JavaWeb-BaloShop/web/login.jsp</file>
+            <file>file:/C:/Users/Shado/Documents/GitHub/JavaWeb-BaloShop/web/products.jsp</file>
+            <file>file:/C:/Users/Shado/Documents/GitHub/JavaWeb-BaloShop/web/modal-login.jsp</file>
+            <file>file:/C:/Users/Shado/Documents/GitHub/JavaWeb-BaloShop/web/common/nav.jsp</file>
+            <file>file:/C:/Users/Shado/Documents/GitHub/JavaWeb-BaloShop/web/user-profile.jsp</file>
         </group>
     </open-files>
 </project-private>
