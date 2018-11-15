@@ -2,12 +2,18 @@
 
 - for sell
 
-## Not done yet
+## Brand: master - Not done yet
 ### client
+- update info detail
+- order: 
+  - update status
 - history
 
 ### admin
 - dashboard
-- update/delete account
-- update/delete products
+- detail/update/delete account
+- detail/update/delete products
 - order
+
+
+## Brand: v2.1 ...
